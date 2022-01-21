@@ -1,3 +1,3 @@
-# Jedidiah Buernor Mortey
+# Jedidiah Buernor Mortey.
 
 ## Assistance Received
