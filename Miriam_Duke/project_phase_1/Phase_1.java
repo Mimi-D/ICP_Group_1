@@ -77,8 +77,9 @@ public class Phase_1 {
         //viewSubmissions();
         scoreAssignment();
         scoreAssignment();
-        viewAssignmentScore();
-        viewAssignmentScore();
+        //viewAssignmentScore();
+        //viewAssignmentScore();
+        viewAssignmentScores();
         //viewAllAssignmentScores();
 
         /*try {
@@ -870,11 +871,12 @@ public class Phase_1 {
                                             // score them
                                             for (ArrayList<String> sc : submittedAssignments) {
                                                 if (sc.get(0).equals(subEmail)) {
+                                                    if (sc.get(2).equals(assName)){
                                                     System.out.print("\nEnter Score out of 100: ");
                                                     String score = getDets.nextLine();
                                                     sc.add(score);
                                                     System.out.println("The student has been graded");
-                                                    return;
+                                                    return;}
                                                 }
                                             }
                                         } else {
@@ -936,13 +938,13 @@ public class Phase_1 {
                 if (stuSub.contains(mail)) {
 
                     for (ArrayList<String> sc : submittedAssignments) {
-                        if (sc.get(0).equals(mail)) {
+                        if (sc.get(0).equals(mail) && sc.get(2).equals(assName)) {
                             //print grade if they've been graded
-                            System.out.println(sc.size());
+
                             try {
                                 System.out.println("Your grade for " + sc.get(2) + " is " + sc.get(4));
                             } catch (IndexOutOfBoundsException e) {
-                                // System.out.println("This assignment has NOT been graded");
+                                 System.out.println("This assignment has NOT been graded");
                             }
                         }
                     }
@@ -1100,9 +1102,9 @@ public class Phase_1 {
                 if (stuSub.contains(mail)) {
 
                     for (ArrayList<String> sc : submittedAssignments) {
-                        if (sc.get(0).equals(mail)) {
+                        if (sc.get(0).equals(mail) && sc.get(2).equals(assName)) {
                             //print grade if they've been graded
-                            System.out.println(sc.size());
+
                             try {
                                 System.out.println("Your grade for " + sc.get(2) + " is " + sc.get(4) + grader(Integer.parseInt(sc.get(4))));
                             } catch (IndexOutOfBoundsException e) {
