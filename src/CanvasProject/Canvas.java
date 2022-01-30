@@ -417,45 +417,56 @@ public class Canvas {
                     System.out.print("Enter the score ");
                     double score = sc.nextDouble();
 
-                    //Using the Ashesi grading system to letter grade user's score input
-                    if(score >= 100 && score >=85){
-                        System.out.println("Excellent: Grade A+");
-                    }else if(score <= 84 && score >= 80){
-                        System.out.println("Very Good: Grade B");
-                    }else if(scoree <= 79 && score >= 75){
-                        System.out.println("Good: Grade C");
-                    }else if(percentage < 70 && percentage >= 60){
-                        System.out.println("Satisfactory: Grade D");
-                    }else if(percentage < 60 && percentage >= 50){
-                        System.out.println("Work Hard: Grade E");
-                    }else if(percentage < 50 && percentage >= 40){
-                        System.out.println("Just Passed: Grade F");
-                    }else {
-                        System.out.println("Failed!");
-                    }
-                }
-
-
                     //adding user input into the scores array
                     scores.add(emailS);
                     scores.add(cC1S);
                     scores.add(assignNameS);
                     scores.add(cCS);
 
+                    //iterates and assigns into thee submitAssignment() function
                     for (score = 0; score <= 100; score++) {
                         submitAssignment(score);
 
                     }
 
+                    //Using the Ashesi grading system to letter grade user's score input
+                    if(score >= 100 && score >=85){
+                        System.out.println("Excellent: Grade A+");
+                    }else if(score <= 84 && score >= 80){
+                        System.out.println("Excellent: Grade A");
+                    }else if(score <= 79 && score >= 75){
+                        System.out.println("Very Good: Grade B+");
+                    }else if(score <= 74 && score >= 70){
+                        System.out.println("Very Good: Grade B");
+                    }else if(score <= 69 && score >= 65){
+                        System.out.println("Good: Grade C+");
+                    }else if(score <= 64 && score >= 60){
+                        System.out.println("Satisfactory: Grade C");
+                    }else if(score <= 59 && score >= 55){
+                        System.out.println("Pass: Grade D+");
+                    }else if (score<=54 && score >= 50){
+                        System.out.println("Pass: Grade D");
+                    }else if(score<50){
+                        System.out.println("Fail: E");
+
+                    }
+                    }else {
+                        System.out.println("Sorry, letter grade cannot be found!");
+                    }
+                }
+
+
+
+
 
                 }
             }
 
-        }
 
-    }
 
-    public void viewAssignmentScore() {
+
+
+    public void viewAssignmentScore(){
         //verify if the user is logged in
         if (this.login()) {
 
