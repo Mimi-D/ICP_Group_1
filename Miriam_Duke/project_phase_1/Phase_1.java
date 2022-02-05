@@ -87,7 +87,10 @@ public class Phase_1 {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-
+        viewAssignmentGrade();
+        viewAssignmentGrades();
+        viewAllAssignmentGrades();
+        setNotificationPreferences();
 
     }
 
@@ -1052,23 +1055,41 @@ public class Phase_1 {
     // this function converts a score to a grade letter
     public static String grader(int score) {
         String grade = "";
-        if (score >= 0 && score < 60) {
-            grade = "F";
+        if (score >= 0 && score < 50) {
+            grade = "E";
 
-        } else if (score >= 60 && score < 70) {
+        } else if (score >= 50 && score <= 54) {
             grade = "D";
 
-        } else if (score >= 70 && score < 80) {
+        }
+        else if (score >= 55 && score <= 59) {
+            grade = "D+";
+
+        }
+        else if (score >= 60 && score <= 64) {
             grade = "C";
 
-        } else if (score >= 80 && score < 85) {
+        }
+        else if (score >= 65 && score <=69) {
+            grade = "C+";
+
+        }
+        else if (score >= 70 && score <= 74) {
             grade = "B";
 
         }
-        else if (score >= 85 && score < 100){
+        else if (score >= 75 && score <= 79) {
+            grade = "B+";
+
+        }
+        else if (score >= 80 && score <= 84){
             grade = "A";
     }
-    return grade;
+        else if (score >= 85 && score <= 100) {
+            grade = "A+";
+
+        }
+        return grade;
     }
 
     public static void viewAssignmentGrade(){
@@ -1106,7 +1127,7 @@ public class Phase_1 {
                             //print grade if they've been graded
 
                             try {
-                                System.out.println("Your grade for " + sc.get(2) + " is " + sc.get(4) + grader(Integer.parseInt(sc.get(4))));
+                                System.out.println("Your grade for " + sc.get(2) + " is " + sc.get(4) + "  " + grader(Integer.parseInt(sc.get(4))));
                             } catch (IndexOutOfBoundsException e) {
                                 // System.out.println("This assignment has NOT been graded");
                             }
@@ -1154,7 +1175,7 @@ public class Phase_1 {
                                         if (one.contains(courseCode) && one.contains(assName)) {
 
                                             try {
-                                                System.out.println(one.get(0) + "\t\t\t" + one.get(4) + grader(Integer.parseInt(one.get(4))));
+                                                System.out.println(one.get(0) + "\t\t\t" + one.get(4) + "\t\t\t" + grader(Integer.parseInt(one.get(4))));
                                             } catch (IndexOutOfBoundsException e) {
                                                 System.out.println(one.get(0) + "\t\t\t NOT GRADED");
                                             }
@@ -1199,7 +1220,7 @@ public class Phase_1 {
                     if (sc.get(0).equals(mail)) {
                         //print grade if they've been graded
                         try {
-                            System.out.println(sc.get(2) + "\t\t\t\t " + grader(Integer.parseInt(sc.get(4))));
+                            System.out.println(sc.get(2) + "\t\t\t\t " + sc.get(4) +"\t\t\t\t"+ grader(Integer.parseInt(sc.get(4))));
                         } catch (IndexOutOfBoundsException e) {
                             System.out.println(sc.get(2) + "\t\t" + "NOT GRADED");
                         }
