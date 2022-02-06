@@ -587,7 +587,7 @@ public class projectPhase1 {
                 String assignmentNameString = assignmentNameScanner.nextLine();
 
                 List<String> x = listOfSubmitters.get(assignmentName.indexOf(assignmentNameString));
-                System.out.println(userFirstName.get(existingEmails.indexOf(retUserEmail))+"'s grade for"+assignmentNameString+" "+singleScores.get(x.indexOf(retUserEmail)));
+                System.out.println(userFirstName.get(existingEmails.indexOf(retUserEmail))+"'s grade for "+assignmentNameString+" "+singleScores.get(x.indexOf(retUserEmail)));
             }
         }
 
@@ -683,7 +683,7 @@ public class projectPhase1 {
                }else{
                    y="E";
                }
-                System.out.println(userFirstName.get(existingEmails.indexOf(retUserEmail))+"'s grade for"+assignmentNameString+" "+singleScores.get(x.indexOf(retUserEmail))+" "+y);
+                System.out.println(userFirstName.get(existingEmails.indexOf(retUserEmail))+"'s grade for "+assignmentNameString+" "+singleScores.get(x.indexOf(retUserEmail))+" "+y);
             }
 
         }
@@ -773,7 +773,7 @@ public class projectPhase1 {
                            y="E";
                        }
 
-                       System.out.println(assignmentName.get(i)+" "+listOfScores.get(i).get(f)+"Grade: "+y);
+                       System.out.println(assignmentName.get(i)+" "+listOfScores.get(i).get(f)+" Grade: "+y);
                     }
 
                 }
@@ -799,7 +799,7 @@ public class projectPhase1 {
 
                 Scanner notifSubScanner = new Scanner(System.in);
                 System.out.println("Enter User will like to receive email notification when an assignment is submitted(Yes/No): ");
-                String notifSubEmail = "Email Preference for assignment submission"+notifSubScanner.nextLine();
+                String notifSubEmail = "Email Preference for assignment submission: "+notifSubScanner.nextLine();
                 notificationpref.add(notifSubEmail);
 
                 Scanner notifRegScanner = new Scanner(System.in);
