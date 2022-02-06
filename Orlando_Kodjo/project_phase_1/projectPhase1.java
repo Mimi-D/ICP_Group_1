@@ -54,6 +54,11 @@ public class projectPhase1 {
         ArrayList <String> singleSubmissions = new ArrayList <String>();
         ArrayList <String> singleScores= new ArrayList <String>();
         ArrayList <List<String>> listOfScores = new ArrayList<>();
+        ArrayList <String> singleGrades = new ArrayList<>();
+        ArrayList <String> submitters = new ArrayList<>();
+        ArrayList <List<String>> listOfSubmitters = new ArrayList<>();
+        ArrayList <String> notificationpref = new ArrayList <>();
+        ArrayList <List<String>> listOfNotificationpref = new ArrayList<>();
 
 
 
@@ -473,11 +478,12 @@ public class projectPhase1 {
 
                 singleSubmissions.add(submissionString);
                 listofSubmissions.add(singleSubmissions);
+                submitters.add(retUserEmail);
 
             }else{
                 System.out.println("Submission cannot be made");
             }
-                
+              listOfSubmitters.add(submitters);  
         }
 
         public void viewSubmissions(){
@@ -506,7 +512,7 @@ public class projectPhase1 {
                         if(listofSubmissions.get(courseCode.indexOf(courseCodeprefString))==null){
                         System.out.println("No submission"); 
                         }else{
-                            listofSubmissions.get(courseCode.indexOf(courseCodeprefString));}
+                            System.out.println(listofSubmissions.get(courseCode.indexOf(courseCodeprefString)));}
                     }
                 }
                     
@@ -557,7 +563,27 @@ public class projectPhase1 {
         }
 
         public void viewAssignmentScore(){
-            //UNDONE 
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+            
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
+
+            if(login(retUserEmail,retUserPassword)){
+                Scanner courseCodeScanner = new Scanner(System.in);
+                System.out.println("Enter Course Code: ");
+                String courseCodeprefString = courseCodeScanner.nextLine();
+
+                Scanner assignmentNameScanner = new Scanner(System.in);
+                System.out.println("Enter Assignment Name: ");
+                String assignmentNameString = assignmentNameScanner.nextLine();
+
+                List<String> x = listOfSubmitters.get(assignmentName.indexOf(assignmentNameString));
+                System.out.println(userFirstName.get(existingEmails.indexOf(retUserEmail))+"'s grade for"+assignmentNameString+" "+singleScores.get(x.indexOf(retUserEmail)));
+            }
         }
 
 
@@ -571,7 +597,7 @@ public class projectPhase1 {
             System.out.println("Enter User Password: ");
             String retUserPassword = retpassw.nextLine();
 
-            if(login(retUserEmail,retUserPassword) && isFaculty(retUserEmail) &&courseCreator.contains(retUserEmail)){
+            if(login(retUserEmail,retUserPassword) && isFaculty(retUserEmail) && courseCreator.contains(retUserEmail)){
                 Scanner courseCodeScanner = new Scanner(System.in);
                 System.out.println("Enter Course Code: ");
                 String courseCodeprefString = courseCodeScanner.nextLine();
@@ -582,6 +608,203 @@ public class projectPhase1 {
 
                 System.out.println("Note = Scores being displayed are out of 100");
                 System.out.println(listOfScores.get(assignmentName.indexOf(assignmentNameString)));
+            }
+        }
+
+        public void viewAllAssignmentScores(){
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+            
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
+
+            if(login(retUserEmail,retUserPassword)){
+
+                for(int i = 0;i<listOfSubmitters.size();i++){
+                    int y= 0;
+                    List <String> x = listOfSubmitters.get(i);
+                    if(x.contains(retUserEmail)){
+                        y = x.indexOf(retUserEmail);
+                        System.out.println(assignmentName.get(i)+" "+listOfScores.get(i).get(y));
+                    }
+
+                }
+
+            }
+        }
+
+        public void viewAssignmentGrade(){
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+            
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
+
+            String y; 
+
+            if(login(retUserEmail,retUserPassword)){
+                Scanner courseCodeScanner = new Scanner(System.in);
+                System.out.println("Enter Course Code: ");
+                String courseCodeprefString = courseCodeScanner.nextLine();
+
+                Scanner assignmentNameScanner = new Scanner(System.in);
+                System.out.println("Enter Assignment Name: ");
+                String assignmentNameString = assignmentNameScanner.nextLine();
+
+                List<String> x = listOfSubmitters.get(assignmentName.indexOf(assignmentNameString));
+                int f = Integer.parseInt(singleScores.get(x.indexOf(retUserEmail)));
+                if(f>84){
+                    y="A+";
+               }else if(f>79){
+                   y="A";
+               }else if(f>74){
+                   y="B+";
+               }else if(f>69){
+                    y="B";
+               }else if(f>64){
+                   y="C+";
+               }else if(f>59){
+                   y="C";
+               }else if(f>54){
+                   y="D+";
+               }else if(f>49){
+                   y="D";
+               }else{
+                   y="E";
+               }
+                System.out.println(userFirstName.get(existingEmails.indexOf(retUserEmail))+"'s grade for"+assignmentNameString+" "+singleScores.get(x.indexOf(retUserEmail))+" "+y);
+            }
+
+        }
+
+        public void viewAssignmentGrades(){
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+            
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
+            if(login(retUserEmail,retUserPassword) && isFaculty(retUserEmail) && courseCreator.contains(retUserEmail)){
+                Scanner courseCodeScanner = new Scanner(System.in);
+                System.out.println("Enter Course Code: ");
+                String courseCodeprefString = courseCodeScanner.nextLine();
+
+                Scanner assignmentNameScanner = new Scanner(System.in);
+                System.out.println("Enter Assignment Name: ");
+                String assignmentNameString = assignmentNameScanner.nextLine();
+
+                for(int i=0;i<listOfScores.get(assignmentName.indexOf(assignmentNameString)).size();i++){
+                    int x=Integer.parseInt(listOfScores.get(assignmentName.indexOf(assignmentNameString)).get(i));
+                   if(x>84){
+                        singleGrades.add("A+");
+                   }else if(x>79){
+                       singleGrades.add("A");
+                   }else if(x>74){
+                       singleGrades.add("B+");
+                   }else if(x>69){
+                        singleGrades.add("B");
+                   }else if(x>64){
+                       singleGrades.add("C+");
+                   }else if(x>59){
+                       singleGrades.add("C");
+                   }else if(x>54){
+                       singleGrades.add("D+");
+                   }else if(x>49){
+                       singleGrades.add("D");
+                   }else{
+                       singleGrades.add("E");
+                   }
+                   
+                }
+                System.out.println(singleGrades);
+            }
+        }
+
+        public void viewAllAssignmentScores1(){
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+            
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
+            String y; 
+
+            if(login(retUserEmail,retUserPassword)){
+
+                for(int i = 0;i<listOfSubmitters.size();i++){
+                    int f= 0;
+                    List <String> x = listOfSubmitters.get(i);
+                    if(x.contains(retUserEmail)){
+                        f = x.indexOf(retUserEmail);
+                        int c = Integer.parseInt(listOfScores.get(i).get(f));
+
+                        if(c>84){
+                            y="A+";
+                       }else if(c>79){
+                           y="A";
+                       }else if(c>74){
+                           y="B+";
+                       }else if(c>69){
+                            y="B";
+                       }else if(c>64){
+                           y="C+";
+                       }else if(c>59){
+                           y="C";
+                       }else if(c>54){
+                           y="D+";
+                       }else if(c>49){
+                           y="D";
+                       }else{
+                           y="E";
+                       }
+
+                       System.out.println(assignmentName.get(i)+" "+listOfScores.get(i).get(f)+"Grade: "+y);
+                    }
+
+                }
+
+            }
+        }
+
+        public void setNotfificationPreferences(){
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+            
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
+
+            if(login(retUserEmail,retUserPassword)){
+                Scanner notifEmScanner= new Scanner(System.in);
+                System.out.println("Enter whether User will like to receive email Notifications when an assignment for a registered course is posted(Yes/No): ");
+                String notifEmString ="Email preference for assignment post: "+notifEmScanner.nextLine();
+                notificationpref.add(notifEmString);
+
+                Scanner notifSubScanner = new Scanner(System.in);
+                System.out.println("Enter User will like to receive email notification when an assignment is submitted(Yes/No): ");
+                String notifSubEmail = "Email Preference for assignment submission"+notifSubScanner.nextLine();
+                notificationpref.add(notifSubEmail);
+
+                Scanner notifRegScanner = new Scanner(System.in);
+                System.out.println("Enter User will like to receive email notification when user registers for a course(Yes/No): ");
+                String notifRegEmail = "Email preference for course Registration: "+notifRegScanner.nextLine();
+                notificationpref.add(notifRegEmail);
+
+                System.out.println(notificationpref);
+
+                listOfNotificationpref.add(notificationpref);
             }
         }
 }
