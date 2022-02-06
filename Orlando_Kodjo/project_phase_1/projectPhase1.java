@@ -27,6 +27,13 @@ public class projectPhase1 {
         cls.submitAssignment();
         cls.viewSubmissions();
         cls.scoreAssignment();
+        cls.viewAssignmentScore();
+        cls.viewAllAssignmentScores();
+        cls.viewAssignmentScores();
+        cls.viewAssignmentGrade();
+        cls.viewAssignmentGrades();
+        cls.viewAllAssignmentScores1();
+        cls.setNotfificationPreferences();
 
         
     }
@@ -173,13 +180,13 @@ public class projectPhase1 {
 
         public void viewProfile() {
             System.out.println("--View Profile--");
-            Scanner retpassw = new Scanner(System.in);
-            System.out.println("Enter User Password: ");
-            String retUserPassword = retpassw.nextLine();
-            
             Scanner retUserEm = new Scanner(System.in);
             System.out.println("Enter User Email: ");
             String retUserEmail = retUserEm.nextLine();
+
+            Scanner retpassw = new Scanner(System.in);
+            System.out.println("Enter User Password: ");
+            String retUserPassword = retpassw.nextLine();
             
             if (login(retUserEmail, retUserPassword)) {
                 int i = existingEmails.indexOf(retUserEmail);
@@ -449,16 +456,14 @@ public class projectPhase1 {
         }
 
         public void submitAssignment(){
+            Scanner retUserEm = new Scanner(System.in);
+            System.out.println("Enter User Email: ");
+            String retUserEmail = retUserEm.nextLine();
+
             Scanner retpassw = new Scanner(System.in);
             System.out.println("Enter User Password: ");
             String retUserPassword = retpassw.nextLine();
             
-
-            Scanner retUserEm = new Scanner(System.in);
-            System.out.println("Enter User Email: ");
-            String retUserEmail = retUserEm.nextLine();
-            
-
             if(login(retUserEmail, retUserPassword)){
                 
                 Scanner courseCodeScanner = new Scanner(System.in);
@@ -533,7 +538,7 @@ public class projectPhase1 {
 
             if(login(retUserEmail,retUserPassword)){
                 if(isFaculty(retUserEmail)){
-                    if(courseCreator.get(courseCode.indexOf(retUserEmail))==retUserEmail){
+                    if(courseCreator.contains(retUserEmail)){
                         Scanner courseCodeScanner = new Scanner(System.in);
                         System.out.println("Enter Course Code: ");
                         String courseCodeprefString = courseCodeScanner.nextLine();
