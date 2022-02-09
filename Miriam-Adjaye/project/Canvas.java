@@ -291,8 +291,11 @@ public class Canvas {
         String email = sc.nextLine();
 
         System.out.println("____COURSES____");
-        for (String s : course) {
-            System.out.println(s);
+       if(email!=null){
+            for(int a=0; a<assI.size();a++) {
+                System.out.println(assI.get(a));
+            }
+        }
 
         }
 
