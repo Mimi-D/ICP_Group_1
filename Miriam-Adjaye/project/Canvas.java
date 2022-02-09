@@ -229,8 +229,9 @@ public class Canvas {
 
     public void viewCourse() {
         System.out.println("____COURSES____");
-        for (String s : course) {
-            System.out.println(s);
+        for (int i = 0; i < course.size(); i++) {
+            System.out.println(course.get(i));
+
 
         }
     }
@@ -291,11 +292,8 @@ public class Canvas {
         String email = sc.nextLine();
 
         System.out.println("____COURSES____");
-       if(email!=null){
-            for(int a=0; a<assI.size();a++) {
-                System.out.println(assI.get(a));
-            }
-        }
+        for (String s : course) {
+            System.out.println(s);
 
         }
 
@@ -307,12 +305,16 @@ public class Canvas {
                 Scanner sc = new Scanner(System.in);
 
                 //Ask the user to input their email
-                System.out.print("Enter your email ");
+                System.out.print("Enter your email: ");
                 String assignEmail = sc.nextLine();
 
                 //Ask the user to input the assignment's name
-                System.out.print("Enter assignment name ");
+                System.out.print("Enter assignment name: ");
                 String assigN = sc.nextLine();
+
+                //Ask the user to input their course code
+                System.out.print("Enter your course code: ");
+                String assignCourseCode = sc.nextLine();
 
                 //Ask the user to input the description of the assignment
                 System.out.print("Enter the description of the assignment: ");
@@ -323,15 +325,16 @@ public class Canvas {
                 String Ddate = sc.nextLine();
 
                 //Ask the user to input the assignment type
-                System.out.print("Enter the assignment type: ");
+                System.out.print("Enter the assignment type(type in uppercase): ");
                 String assTy = sc.nextLine();
 
                 assI.add(assigN);
                 assI.add(des);
                 assI.add(Ddate);
                 assI.add(assignEmail);
+                assI.add(assignCourseCode);
 
-                if ((Objects.equals(assTy, "QUIZ")) || (assTy.equals("HOMEWORK")) || (assTy.equals("PROJECT")) || (assTy.equals("EXAM"))) {
+                if ((Objects.equals(assTy, "QUIZ")) || (assTy.equals("ASSIGNMENT")) || (assTy.equals("PROJECT")) || (assTy.equals("EXAM"))) {
                     assI.add(assTy);
 
                 } else {
@@ -352,12 +355,14 @@ public class Canvas {
         Scanner sc = new Scanner(System.in);
         //Ask the user to input the course code
         System.out.print("Enter the course code: ");
+        String courseCode = sc.nextLine();
         System.out.println();
-        System.out.println("ASSIGNMENTS");
+        System.out.println("ASSIGNMENT DETAILS: ");
 
-        for (String s : assI) {
-            System.out.println(s);
-
+        if(courseCode!=null){
+            for(int y=0; y<assI.size();y++) {
+                System.out.println(assI.get(y));
+            }
         }
     }
 
@@ -370,6 +375,11 @@ public class Canvas {
         String email = sc.nextLine();
 
         //if (addAssignment(assignEmail).equals(email)) {}
+        if(email!=null){
+            for(int a=0; a<assI.size();a++) {
+                System.out.println(assI.get(a));
+            }
+        }
 
         return false;
         }
@@ -714,19 +724,12 @@ public class Canvas {
 
     public static void main (String[]args){
         Canvas c1 = new Canvas();
-        //c1.CreateAccount();
-        c1.login();
-        //c1.updateProfile();
-        //c1.viewProfile();
-        //c1.CreateAdmin();
-        //c1.isAdmin();
-        //c1.makeFaculty();
-        //c1.isFaculty();
-        //c1.createCourse();
-        //c1.viewCourse();
-        //c1.scoreAssignment();
-        //c1.viewAllAssignmentScoress();
-        c1.viewAssignmentGrade();
-        c1.setNotificationPreferences();
+        c1.CreateAccount();
+        c1.updateProfile();
+        c1.viewProfile();
+        c1.createCourse();
+        c1.viewCourse();
+        c1.addAssignment();
+        c1.viewAssignmentsByCourse();
     }
 }
