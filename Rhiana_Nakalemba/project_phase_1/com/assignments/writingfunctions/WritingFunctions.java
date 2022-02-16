@@ -77,8 +77,32 @@ public class WritingFunctions {
     // Updating the users profile
     static void updateProfile(){
         while (login() == true){
+            String email = login(email);
+
+            Scanner input = new Scanner(System.in);
+
             System.out.println("Enter new details below: ");
-            System.out.println("");
+            System.out.println("First Name: ");
+            String f_name = input.nextLine(); // input first name
+            System.out.println("Last Name: ");
+            String l_name = input.nextLine(); // input last name
+            System.out.println("Year group: ");
+            Integer year = input.nextInt(); // input year group
+            System.out.println("Current GPA: ");
+            Float gpa = input.nextFloat(); // input current gpa
+            System.out.println("Date of birth (DD/MM/YYY): ");
+            String dob = input.nextLine(); // input date of birth
+
+            for (ArrayList account: accounts){
+                String account_email = account.get(0);
+                if (account_email.equals(email)){ // login email is account email
+                    account.add(2,f_name);
+                    account.add(3, l_name);
+                    account.add(4, dob);
+                    account.add(5, year);
+                    account.add(6, gpa);
+                }
+            }
         }
     }
 //
