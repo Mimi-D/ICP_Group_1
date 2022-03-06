@@ -1,11 +1,11 @@
-package com.assignments.writingfunctions;
+package com.assignments.phasetwo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class WritingFunctions {
-    static ArrayList accounts = new ArrayList();
+public class PhaseTwo {
+    static ArrayList<ArrayList<String>> accounts = new ArrayList<ArrayList<String>>();
     static List admin_accounts = new ArrayList<>();
     static List faculty = new ArrayList<>();
     static List courses = new ArrayList();
@@ -21,7 +21,7 @@ public class WritingFunctions {
         String email = input.nextLine();    // user types email
         System.out.println("Enter password: ");
         String password = input.nextLine();     // user types password
-        ArrayList new_account = new ArrayList();
+        ArrayList<String> new_account = new ArrayList<String>();
 
         // email and password indexes match
         // checking if the provided email matches a normal email format
@@ -63,7 +63,7 @@ public class WritingFunctions {
         System.out.println("Enter password: ");
         String password = input.nextLine();     // user types password
 
-        for (ArrayList account: accounts){
+        for (ArrayList<String> account: accounts){
             String account_email = account.get(0);
             String account_password = account.get(1);
 
@@ -93,14 +93,14 @@ public class WritingFunctions {
             System.out.println("Date of birth (DD/MM/YYY): ");
             String dob = input.nextLine(); // input date of birth
 
-            for (ArrayList account: accounts){
+            for (ArrayList<String> account: accounts){
                 String account_email = account.get(0);
                 if (account_email.equals(email)){ // login email is account email
                     account.add(2,f_name); // first name
                     account.add(3, l_name); // last name
                     account.add(4, dob); // date of birth
-                    account.add(5, year); // year group
-                    account.add(6, gpa); // current gpa
+                    account.add(5, year.toString()); // year group
+                    account.add(6, gpa.toString()); // current gpa
                 }
             }
         }
@@ -109,7 +109,7 @@ public class WritingFunctions {
     // Viewing a users profile
     static void viewProfile(){
         while (login() == true){
-            for (ArrayList account: accounts){
+            for (ArrayList<String> account: accounts){
                 String account_email = account.get(0);
                 if (account_email.equals(login(email))){ // if the account email matches the login email
                     // display first name if available
@@ -155,11 +155,11 @@ public class WritingFunctions {
     static boolean isAdmin(String email){
         if (admin_accounts.contains(email)){
             return true;
-        } 
+        }
         return false;
     }
 
-   static void makeFaculty(){}
+    static void makeFaculty(){}
 //
 //    static void isFaculty(){}
 //
