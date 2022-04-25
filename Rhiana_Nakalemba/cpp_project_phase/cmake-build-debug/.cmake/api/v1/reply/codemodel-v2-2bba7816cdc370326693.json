@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cpp_project_phase",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cpp_project_phase::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cpp_project_phase-Debug-1be1370ed7250dd4545c.json",
+					"name" : "cpp_project_phase",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase/cmake-build-debug",
+		"source" : "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
