@@ -67,6 +67,21 @@ public:
         }
 
     }
+
+    // logging in an existing user
+    bool login(string& user_email, string& user_password) {
+        for (int i = 0; i < accounts.size(); ++i) {
+            const vector<string> account = accounts[i];
+            // accounts has email and password saved first
+            string account_email = account[0];
+            string account_password = account[1];
+
+            if (account_email == user_email && account_password == user_password) {
+                return true;
+            }
+        }
+        return false;
+    }
 };
 
 
@@ -82,6 +97,10 @@ int main() {
     // creating a new account
     User new_account;
     new_account.createAccount(user_email, user_password);
+
+    // logging an existing user in
+    User user_login;
+    cout << user_login.login(user_email, user_password);
 
     return 0;
 }
