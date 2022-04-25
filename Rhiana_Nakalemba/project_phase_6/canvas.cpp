@@ -123,7 +123,7 @@ public:
     // viewing the user profile
     void viewProfile(string& user_email, string& user_password) {
         while (login(user_email, user_password) == true) {
-
+            
         }
     }
 };
