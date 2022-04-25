@@ -1,3 +1,8 @@
+//
+// Created by trhiana.
+//
+
+#include "canvas.h"
 #include <iostream>
 #include <regex>
 #include <vector>
@@ -5,14 +10,7 @@
 #include <string>
 using namespace std;
 
-class Account {
-protected:
-    vector<string> accounts;
-    string email;
-    string password;
-};
-
-class User: public Account {
+class User: public canvas {
 public:
     // email format
     static bool isValid(const string& user_email) {
@@ -42,7 +40,7 @@ public:
 
                 // if email is new and valid, validate the password provided with that email
                 if (valid_password) {
-                    // save provided password
+                    // save provided password.
                     // password can only be validated and saved if the email is new and validate
                     password = user_password;
                     new_account.push_back(password);
@@ -70,11 +68,9 @@ public:
 
     // logging in an existing user
     bool login(string& user_email, string& user_password) {
-        for (int i = 0; i < accounts.size(); ++i) {
-            const vector<string> account = accounts[i];
-            // accounts has email and password saved first
-            string account_email = account[0];
-            string account_password = account[1];
+        for (vector<string> account : accounts) {
+            const string& account_email = account[0];
+            const string& account_password = account[1];
 
             if (account_email == user_email && account_password == user_password) {
                 return true;

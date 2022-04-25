@@ -3,4 +3,4 @@ project(cpp_project_phase)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp_project_phase main.cpp)
+add_executable(cpp_project_phase canvas.cpp canvas.h admin.cpp)
