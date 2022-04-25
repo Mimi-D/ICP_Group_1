@@ -13,10 +13,13 @@
 using namespace std;
 
 class canvas {
+    // each account in accounts  = [email, password, date of birth, year group, gpa]
 protected:
-    vector<string> accounts;
-    string email;
-    string password;
+    vector<vector<string>> accounts;
+    string email, password;
+
+public:
+    string first_name, last_name, dob, year, gpa;
 
 };
 

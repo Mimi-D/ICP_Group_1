@@ -49,6 +49,21 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "/snap/clion/189/bin/cmake/linux/share/cmake-3.22/Modules/CMakeFindCodeBlocks.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/snap/clion/189/bin/cmake/linux/share/cmake-3.22/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/snap/clion/189/bin/cmake/linux/share/cmake-3.22/Modules/ProcessorCount.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "/snap/clion/189/bin/cmake/linux/share/cmake-3.22/Modules/CMakeCInformation.cmake"
 		},
 		{
@@ -125,8 +140,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase/cmake-build-debug",
-		"source" : "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase"
+		"build" : "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/Project/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase/cmake-build-debug",
+		"source" : "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/Project/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase"
 	},
 	"version" : 
 	{

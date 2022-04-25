@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/cpp_project_phase.dir/canvas.cpp.o -o cpp_project_phase 

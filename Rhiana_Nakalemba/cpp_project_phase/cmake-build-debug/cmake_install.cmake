@@ -1,4 +1,4 @@
-# Install script for directory: /media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase
+# Install script for directory: /media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/Project/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/trhiana/Ashesi/CS/313/Spring 2022/Assignments/Project/ICP_Group_1/Rhiana_Nakalemba/cpp_project_phase/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
