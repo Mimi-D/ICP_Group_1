@@ -158,6 +158,9 @@ class Canvas{
                         cout << j << "\n";
                     }
                 }
+                else{
+                    cout<<"N/A";
+                }
                 
             }
 
