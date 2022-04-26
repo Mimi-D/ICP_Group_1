@@ -6,7 +6,6 @@
 #include <iostream>
 #include <regex>
 #include <vector>
-#include <algorithm>
 #include <string>
 using namespace std;
 
@@ -47,6 +46,7 @@ public:
                         // password can only be validated and saved if the email is new and validate
                         password = user_password;
                         new_account.push_back(password);
+                        cout << "Account has been created!";
 
                     } else {
                         cout << "Password should follow this pattern: " << endl;
@@ -85,7 +85,7 @@ public:
 
     // update the user profile
     void updateProfile(string& user_email, string& user_password){
-        while (login(user_email, user_password) == true) {
+        while (login(user_email, user_password)) {
             // vector<string> new_account;
             cout << "Enter new details below: ";
             cout << "First name: ";
@@ -122,8 +122,30 @@ public:
 
     // viewing the user profile
     void viewProfile(string& user_email, string& user_password) {
-        while (login(user_email, user_password) == true) {
-            
+        while(login(user_email, user_password)){
+            for (vector<string> account : accounts) {
+                string account_email = account[0];
+                if (account_email == user_email) { // check that login email matches the account email
+                    // display first name idf available in profile
+//                    try {
+//                        cout << "First name: " << account[2] << endl;
+//                    } catch (const out_of_range& e) {
+//                        cout << "First name: NA";
+//                    }
+//
+//                    // display last name idf available in profile
+//                    try {
+//                        cout << "Last name: " << account[3] << endl;
+//                    } catch (const out_of_range& e) {
+//                        cout << "Last name: NA";
+//                    }
+// still working on exception handling in C++.
+
+
+                } else {
+                    cout << "Login with the correct email";
+                }
+            }
         }
     }
 };
@@ -143,12 +165,12 @@ int main() {
     cin >> user_password;
 
     // creating a new account
-    User new_account;
-    new_account.createAccount(user_email, user_password);
+//    User new_account;
+//    new_account.createAccount(user_email, user_password);
 
     // logging an existing user in
-    User user_login;
-    cout << user_login.login(user_email, user_password);
+//    User user_login;
+//    cout << user_login.login(user_email, user_password);
 
     return 0;
 }
